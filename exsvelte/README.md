@@ -1,14 +1,35 @@
-1. node が入ってるか 
+## プロジェクト構築
+
+### node が入ってるか 
 
 ```
-PS C:\projects\frontend> node -v
-v14.2.0
+node -v
 ```
 
-1. プロジェクト作成
+### プロジェクト作成
 
 ```
-PS C:\projects\frontend> npx degit sveltejs/template exsvelte
-npx: 1個のパッケージを2.485秒でインストールしました。
-> cloned sveltejs/template#master to exsvelte
+npx degit sveltejs/template exsvelte
 ```
+
+### 依存関係のインストール
+
+```
+npm install
+```
+
+### 開発環境の起動
+
+```
+npm run dev
+```
+
+ブラウザで http://localhost:5000 が開ければOK  
+コード変更がリアルタイムに反映されていく。
+
+
+## その他
+
+1. VSCode の設定
+
+`{app}/.vscode/settings.json
