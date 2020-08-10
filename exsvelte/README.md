@@ -27,6 +27,16 @@ npm run dev
 ブラウザで http://localhost:5000 が開ければOK  
 コード変更がリアルタイムに反映されていく。
 
+## SPA対応
+
+```
+npm install svelte-spa-router
+```
+
+app.svelte のソース参照
+
+
+
 
 ## その他
 

@@ -1,30 +1,30 @@
 <script>
-	export let name;
+  import Router from "svelte-spa-router";
+  import Home from "./routes/home.svelte";
+  import BrandCreate from "./routes/brand/create.svelte";
+  import BrandList from "./routes/brand/list.svelte";
+
+  import { link } from "svelte-spa-router";
+
+  const routes = {
+    "/": Home,
+    "/brand/create": BrandCreate,
+    "/brand/list": BrandList
+  };
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+  div.menu a {
+    margin-right: 10px;
+  }
 </style>
+
+<body>
+  <div class="menu">
+    <a href="#/">#</a>
+    <a href="#/brand/create">銘柄作成</a>
+    <a href="#/brand/list">銘柄一覧</a>
+  </div>
+
+  <Router {routes} />
+</body>
