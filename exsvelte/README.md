@@ -35,6 +35,12 @@ npm install svelte-spa-router
 
 app.svelte のソース参照
 
+## CSS
+
+殺風景すぎるので、 `public/index.html` に以下追記
+```
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css">
+```
 
 
 

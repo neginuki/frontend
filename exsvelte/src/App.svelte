@@ -1,15 +1,17 @@
 <script>
   import Router from "svelte-spa-router";
   import Home from "./routes/home.svelte";
-  import BrandCreate from "./routes/brand/create.svelte";
-  import BrandList from "./routes/brand/list.svelte";
+  import BreweryCreate from "./routes/brewery/create.svelte";
+  import BreweryList from "./routes/brewery/list.svelte";
+  import BreweryDetail from "./routes/brewery/detail.svelte";
 
   import { link } from "svelte-spa-router";
 
   const routes = {
     "/": Home,
-    "/brand/create": BrandCreate,
-    "/brand/list": BrandList
+    "/brewery/create": BreweryCreate,
+    "/brewery/list": BreweryList,
+    "/brewery/detail/:id": BreweryDetail
   };
 </script>
 
@@ -22,8 +24,8 @@
 <body>
   <div class="menu">
     <a href="#/">#</a>
-    <a href="#/brand/create">銘柄作成</a>
-    <a href="#/brand/list">銘柄一覧</a>
+    <a href="#/brewery/create">蔵元作成</a>
+    <a href="#/brewery/list">蔵元一覧</a>
   </div>
 
   <Router {routes} />
