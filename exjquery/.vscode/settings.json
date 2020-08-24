@@ -1,0 +1,15 @@
+{
+    "workbench.iconTheme": "vs-seti",
+    "html.format.maxPreserveNewLines": 1,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "files.eol": "\n",
+    "files.insertFinalNewline": false,
+    "htmlhint.options": {
+        "doctype-first": false
+    },
+    "html.format.wrapLineLength": 180,
+    "html.format.extraLiners": ""
+}

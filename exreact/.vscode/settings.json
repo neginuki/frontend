@@ -1,0 +1,26 @@
+{
+  "workbench.iconTheme": "vs-seti",
+  "html.format.maxPreserveNewLines": 1,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "files.eol": "\n",
+  "files.insertFinalNewline": false,
+  "htmlhint.options": {
+    "doctype-first": false
+  },
+  "html.format.wrapLineLength": 180,
+  "html.format.extraLiners": "",
+  "eslint.autoFixOnSave": true,
+  "eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+}
