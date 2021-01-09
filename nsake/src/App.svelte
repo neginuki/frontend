@@ -1,13 +1,18 @@
 <script lang="ts">
     import Router from "svelte-spa-router";
-    import Blank from "./contents/Blank.svelte";
-    import Body1 from "./contents/Body1.svelte";
-
-    import { link } from "svelte-spa-router";
+    import Menu from "./contents/Menu.svelte";
+    import Home from "./contents/Home.svelte";
+    import CarbonSample from "./contents/carbon/Sample.svelte";
+    import SmelteSample from "./contents/smelte/Sample.svelte";
+    import MaterialSample from "./contents/material/Sample.svelte";
+    import SveltrapSample from "./contents/sveltrap/Sample.svelte";
 
     const routes = {
-        "/": Blank,
-        "/body1": Body1,
+        "/": Home,
+        "/carbon": CarbonSample,
+        "/smelte": SmelteSample,
+        "/material": MaterialSample,
+        "/sveltrap": SveltrapSample,
     };
 </script>
 
@@ -15,8 +20,6 @@
 </style>
 
 <main>
-    <div class="menu"><a href="#/">#</a></div>
-    <div class="menu"><a href="#/body1">Body1</a></div>
-
+    <Menu />
     <Router {routes} />
 </main>
