@@ -6,13 +6,11 @@
     let establishedDate = null;
     let defunctDate = null;
     let liquors = [];
-    let status = null;
+    let status = "DRAFT";
     let url = null;
     let note = null;
 
-    let data = [];
-
-    const createBrewery = async (event) => {
+    const createBrewery = async (event: any) => {
         event.currentTarget.innerHTML = "登録処理中です・・・";
         event.currentTarget.disabled = true;
 
@@ -35,7 +33,8 @@
                 note: note,
             }),
         });
-        data = await response.json();
+
+        return await response.json();
     };
 </script>
 
