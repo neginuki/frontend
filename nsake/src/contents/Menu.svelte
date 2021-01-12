@@ -14,6 +14,9 @@
             <NavLink class="text-white" href="#/carbon">Carbon</NavLink>
         </NavItem>
         <NavItem>
+            <NavLink class="text-white" href="#/svelte">Svelte(デフォ)</NavLink>
+        </NavItem>
+        <NavItem>
             <NavLink class="text-white" href="#/smelte">Smelte</NavLink>
         </NavItem>
         <NavItem>
