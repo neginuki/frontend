@@ -7,6 +7,7 @@
     let defunctDate = null;
     let liquors = [];
     let status = "DRAFT";
+    let status2 = "STOP";
     let url = null;
     let note = null;
 
@@ -29,6 +30,7 @@
                 defunct_date: defunctDate,
                 liquors: liquors,
                 status: status,
+                status2: status2,
                 url: url,
                 note: note,
             }),
@@ -108,6 +110,14 @@
                 name="status"
                 bind:group={status}
                 value="STOP" />停止中
+        </div>
+        <div>
+            <span>ステータス2</span>
+            <select bind:value={status2}>
+                <option value="DRAFT">未公開</option>
+                <option value="RUNNING">公開中</option>
+                <option value="STOP">停止中</option>
+            </select>
         </div>
         <div>
             <span>URL</span>

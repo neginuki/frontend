@@ -1,4 +1,11 @@
 <script lang="ts">
+    import M from "materialize-css";
+    import "materialize-css/dist/css/materialize.css";
+    import { onMount } from "svelte";
+    onMount(() => {
+        M.AutoInit();
+    });
+
     let breweryName = null;
     let breweryNameKana = null;
     let address = null;
@@ -7,6 +14,7 @@
     let defunctDate = null;
     let liquors = [];
     let status = "DRAFT";
+    let status2 = "STOP";
     let url = null;
     let note = null;
 
@@ -29,6 +37,7 @@
                 defunct_date: defunctDate,
                 liquors: liquors,
                 status: status,
+                status2: status2,
                 url: url,
                 note: note,
             }),
@@ -42,20 +51,7 @@
     div div {
         margin: 20px;
     }
-    textarea {
-        width: 500px;
-        height: 250px;
-    }
 </style>
-
-<svelte:head>
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
-    </script>
-</svelte:head>
 
 <main>
     <h1>蔵元作成</h1>
@@ -91,44 +87,62 @@
                 <span>設立</span>
                 <input
                     bind:value={establishedDate}
+                    class="datepicker"
                     placeholder="e.g. 1919-12-31" />
             </div>
             <div>
                 <span>廃業</span>
-                <input bind:value={defunctDate} placeholder="e.g. 2000-01-01" />
+                <input bind:value={defunctDate} placeholder="e.g. 2000-02-01" />
             </div>
             <div>
                 <span>取り扱い</span>
-                <input
-                    type="checkbox"
-                    bind:group={liquors}
-                    value="nihonshu" />日本酒
-                <input
-                    type="checkbox"
-                    bind:group={liquors}
-                    value="shochu" />焼酎
-                <input
-                    type="checkbox"
-                    bind:group={liquors}
-                    value="wine" />ワイン
+                <label>
+                    <input
+                        type="checkbox"
+                        bind:group={liquors}
+                        value="nihonshu" /><span>日本酒</span>
+                </label>
+                <label>
+                    <input
+                        type="checkbox"
+                        bind:group={liquors}
+                        value="shochu" /><span>焼酎</span>
+                </label>
+                <label>
+                    <input
+                        type="checkbox"
+                        bind:group={liquors}
+                        value="wine" /><span>ワイン</span>
+                </label>
             </div>
             <div>
                 <span>ステータス</span>
-                <input
-                    type="radio"
-                    name="status"
-                    bind:group={status}
-                    value="DRAFT" />未公開
-                <input
-                    type="radio"
-                    name="status"
-                    bind:group={status}
-                    value="RUNNING" />公開中
-                <input
-                    type="radio"
-                    name="status"
-                    bind:group={status}
-                    value="STOP" />停止中
+                <label>
+                    <input
+                        type="radio"
+                        bind:group={status}
+                        value="DRAFT" /><span>未公開</span>
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        bind:group={status}
+                        value="RUNNING" /><span>公開中</span>
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        bind:group={status}
+                        value="STOP" /><span>停止中</span>
+                </label>
+            </div>
+            <div class="input-field">
+                <select id="status2" bind:value={status2}>
+                    <option value="DRAFT">未公開</option>
+                    <option value="RUNNING">公開中</option>
+                    <option value="STOP">停止中</option>
+                </select>
+                <label for="status2">ステータス2</label>
             </div>
             <div>
                 <span>URL</span>
@@ -138,6 +152,7 @@
                 <span>備考</span>
                 <textarea
                     bind:value={note}
+                    class="materialize-textarea"
                     placeholder="e.g. オフレコですが、実は、、、" />
             </div>
         </div>

@@ -21,6 +21,8 @@ public class BreweryResource {
 
     public Status status;
 
+    public Status status2;
+
     public String url;
 
     public String note;
@@ -31,7 +33,8 @@ public class BreweryResource {
     public String toString() {
         return "BreweryResource [brewery_name=" + brewery_name + ", brewery_name_kana=" + brewery_name_kana + ", address=" + address
                 + ", founded_year=" + founded_year + ", established_date=" + established_date + ", defunct_date=" + defunct_date
-                + ", liquors=" + liquors + ", status=" + status + ", url=" + url + ", note=" + note + ", version_no=" + version_no + "]";
+                + ", liquors=" + liquors + ", status=" + status + ", status2=" + status2 + ", url=" + url + ", note=" + note
+                + ", version_no=" + version_no + "]";
     }
 
     public static enum Status {
@@ -43,5 +46,12 @@ public class BreweryResource {
             this.code = code;
         }
 
+    }
+
+    public static BreweryResource getMockBrewery(String name) {
+        BreweryResource mock = new BreweryResource();
+        mock.brewery_name = name;
+
+        return mock;
     }
 }
