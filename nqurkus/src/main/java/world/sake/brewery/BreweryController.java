@@ -16,6 +16,7 @@ public class BreweryController {
     @GET
     @Path("/{breweryName}")
     public Response get(@PathParam String breweryName) {
+        System.out.println("get: " + breweryName);
 
         if (breweryName.equals("未来酒造2")) {
             return Response.ok().entity(BreweryResource.getMockBrewery(breweryName)).build();

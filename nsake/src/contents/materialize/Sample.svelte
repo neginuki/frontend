@@ -17,6 +17,8 @@
     let status2 = "STOP";
     let url = null;
     let note = null;
+    // エラー文言
+    let breweryNameMessage = "";
 
     const createBrewery = async (event: any) => {
         event.currentTarget.innerHTML = "登録処理中です・・・";
@@ -45,6 +47,22 @@
 
         return await response.json();
     };
+
+    const validateAvailableBreweryName = async () => {
+        const response = await fetch(
+            "http://localhost:8080/breweries/" + breweryName,
+            {
+                method: "GET",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        breweryNameMessage =
+            response.status === 404 ? "OK" : "既に存在するため利用できません";
+    };
 </script>
 
 <style>
@@ -62,7 +80,9 @@
                 <span>蔵名</span>
                 <input
                     bind:value={breweryName}
+                    on:keyup={validateAvailableBreweryName}
                     placeholder="e.g. 廣木酒造本店" />
+                <span class="helper-text">{breweryNameMessage}</span>
             </div>
             <div>
                 <span>蔵名（かな）</span>
