@@ -23,6 +23,11 @@
             <NavLink class="text-white" href="#/material">Material</NavLink>
         </NavItem>
         <NavItem>
+            <NavLink class="text-white" href="#/materialize">
+                Materialize
+            </NavLink>
+        </NavItem>
+        <NavItem>
             <NavLink class="text-white" href="#/sveltrap">Sveltrap</NavLink>
         </NavItem>
     </Nav>
