@@ -2,6 +2,8 @@
     import M from "materialize-css";
     import "materialize-css/dist/css/materialize.css";
     import { onMount } from "svelte";
+    import validate from "./validation.js";
+
     onMount(() => {
         M.AutoInit();
     });
@@ -20,7 +22,28 @@
     // エラー文言
     let breweryNameMessage = "";
 
+    const getInputValue = () => {
+        return {
+            brewery_name: breweryName,
+            brewery_name_kana: breweryNameKana,
+            address: address,
+            founded_year: foundedYear,
+            established_date: establishedDate,
+            defunct_date: defunctDate,
+            liquors: liquors,
+            status: status,
+            status2: status2,
+            url: url,
+            note: note,
+        };
+    };
+
     const createBrewery = async (event: any) => {
+        const res = validate(getInputValue()).done((va) => {
+            console.log(va.hasErrors());
+            console.log(va);
+        });
+
         event.currentTarget.innerHTML = "登録処理中です・・・";
         event.currentTarget.disabled = true;
 
@@ -74,7 +97,7 @@
 <main>
     <h1>蔵元作成</h1>
 
-    <form>
+    <form name="createForm">
         <div>
             <div>
                 <span>蔵名</span>
